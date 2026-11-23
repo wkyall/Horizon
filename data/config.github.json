@@ -154,7 +154,10 @@
           "channel": "zaihuapd",
           "enabled": true,
           "fetch_limit": 20,
-          "profile": ["tech-news", "finance-news"]
+          "profile": [
+            "tech-news",
+            "finance-news"
+          ]
         }
       ]
     }
@@ -176,37 +179,18 @@
   "webhook": {
     "enabled": true,
     "url_env": "HORIZON_WEBHOOK_URL",
-    "delivery": "summary_and_items",
+    "delivery": "summary",
     "overview_position": "last",
-    "platform": "feishu",
+    "platform": "generic",
     "layout": "collapsible",
     "fallback_layout": "markdown",
     "languages": [
       "zh"
     ],
     "request_body": {
-      "msg_type": "interactive",
-      "card": {
-        "schema": "2.0",
-        "config": {
-          "wide_screen_mode": true
-        },
-        "header": {
-          "title": {
-            "tag": "plain_text",
-            "content": "#{message_title}"
-          },
-          "template": "blue"
-        },
-        "body": {
-          "elements": [
-            {
-              "tag": "markdown",
-              "content": "#{summary}"
-            }
-          ]
-        }
-      }
+      "chat_id": "1485542010",
+      "text": "#{message_title}\n\n#{summary?limit=3800&split=\n}",
+      "disable_web_page_preview": true
     },
     "headers": ""
   }
